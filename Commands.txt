@@ -1,0 +1,13 @@
+nano /etc/sysctl.conf
+
+Paste Kernel settings.
+file and apply the settings with.
+
+sysctl -p
+
+Then use anti-ddos
+
+iptables.sh
+
+For The Last part use detec to block any ips outside the range to simply Download stuff use
+iptables-nft -F
