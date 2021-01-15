@@ -17,8 +17,8 @@
 #block udp methode "CODE"
 /sbin/iptables-nft  -I INPUT -p udp -m udp -m string --hex-string "|ffffffff6765746368616c6c656e676520302022|" --algo kmp -j DROP
 
-#block TCP expect port 80,22,443
-/sbin/iptables-nft  -A INPUT -p tcp -m tcp -m multiport ! --dports 80,22,443 -j DROP
+#block TCP expect port 80,22,443,3306
+/sbin/iptables-nft  -A INPUT -p tcp -m tcp -m multiport ! --dports 80,22,443,3306 -j DROP
 
 #block udp methode "SSDP"
 /sbin/iptables-nft  -I INPUT -p udp --dport 16000:29000 -m string --to 75 --algo bm --string 'HTTP/1.1 200 OK' -j DROP
